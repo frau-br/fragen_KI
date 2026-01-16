@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>KI-Lernspiel – Chancen & Risiken vertieft</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2ff;
+    padding: 20px;
+}
+h1 {
+    color: #1f3c88;
+}
+.card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+button {
+    margin-top: 6px;
+    padding: 6px 12px;
+    background: #1f3c88;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background: #14285c;
+}
+.feedback {
+    margin-top: 6px;
+    font-weight: bold;
+}
+.correct { color: green; }
+.wrong { color: red; }
+</style>
+</head>
+
+<body>
+
+<h1>🤖 KI-Lernspiel: Chancen & Risiken wirklich verstehen</h1>
+<p>Wähle immer die <b>beste Antwort</b>. Manche Antworten sind absichtlich „verführerisch“.</p>
+
+<script>
+function check(id, ok, info) {
+    let f = document.getElementById(id);
+    if (ok) {
+        f.textContent = "Richtig ✔ " + info;
+        f.className = "feedback correct";
+    } else {
+        f.textContent = "Falsch ✖ " + info;
+        f.className = "feedback wrong";
+    }
+}
+</script>
+
+<!-- FRAGENBLOCK -->
+<script>
+let q = 1;
+function qid(){ return "f"+q++; }
+</script>
+
+<!-- 1–5 GRUNDVERSTÄNDNIS -->
+<div class="card">
+<p><b>1. Warum kann KI Menschen beim Entscheiden unterstützen?</b></p>
+<button onclick="check('f1',true,'Sie erkennt Muster, die Menschen übersehen.')">Sie erkennt Muster in großen Datenmengen</button><br>
+<button onclick="check('f1',false,'KI hat keine Gefühle.')">Weil sie Emotionen besser versteht</button><br>
+<button onclick="check('f1',false,'KI macht auch Fehler.')">Weil sie immer recht hat</button>
+<div id="f1"></div>
+</div>
+
+<div class="card">
+<p><b>2. Warum ist es problematisch, KI allein entscheiden zu lassen?</b></p>
+<button onclick="check('f2',true,'Verantwortung muss bei Menschen bleiben.')">Weil Verantwortung unklar wird</button><br>
+<button onclick="check('f2',false,'KI nutzt sehr wohl Daten.')">Weil KI keine Daten nutzt</button><br>
+<button onclick="check('f2',false,'Geschwindigkeit ist kein Problem.')">Weil KI zu schnell arbeitet</button>
+<div id="f2"></div>
+</div>
+
+<div class="card">
+<p><b>3. Welche Aussage zu KI stimmt?</b></p>
+<button onclick="check('f3',false,'KI ist kein Lebewesen.')">KI denkt wie ein Mensch</button><br>
+<button onclick="check('f3',true,'Sie lernt aus Daten.')">KI lernt aus Beispielen und Daten</button><br>
+<button onclick="check('f3',false,'KI wird programmiert und trainiert.')">KI entsteht zufällig</button>
+<div id="f3"></div>
+</div>
+
+<div class="card">
+<p><b>4. Warum kann KI schneller arbeiten als Menschen?</b></p>
+<button onclick="check('f4',true,'Rechenleistung ist sehr hoch.')">Sie verarbeitet viele Informationen gleichzeitig</button><br>
+<button onclick="check('f4',false,'KI braucht keinen Schlaf, aber das ist nicht der Hauptgrund.')">Sie wird nie müde</button><br>
+<button onclick="check('f4',false,'KI ist nicht kreativ.')">Sie ist kreativer als Menschen</button>
+<div id="f4"></div>
+</div>
+
+<div class="card">
+<p><b>5. Welche Aufgabe sollte KI eher NICHT übernehmen?</b></p>
+<button onclick="check('f5',true,'Moral gehört zum Menschen.')">Entscheidungen über Leben und Tod</button><br>
+<button onclick="check('f5',false,'Das ist typisch für KI.')">Sortieren von Daten</button><br>
+<button onclick="check('f5',false,'Das ist gut geeignet.')">Routinearbeiten</button>
+<div id="f5"></div>
+</div>
+
+<!-- 6–15 CHANCEN & RISIKEN -->
+<div class="card">
+<p><b>6. Welche Situation zeigt eine echte Chance von KI?</b></p>
+<button onclick="check('f6',true,'Früherkennung rettet Leben.')">KI hilft, Krankheiten früh zu erkennen</button><br>
+<button onclick="check('f6',false,'Das wäre unfair.')">KI vergibt Schulnoten</button><br>
+<button onclick="check('f6',false,'Das ist unrealistisch.')">KI ersetzt alle Ärzt:innen</button>
+<div id="f6"></div>
+</div>
+
+<div class="card">
+<p><b>7. Warum können Menschen durch KI „unselbstständig“ werden?</b></p>
+<button onclick="check('f7',true,'Zu viel Abhängigkeit ist ein Risiko.')">Weil sie sich zu sehr auf KI verlassen</button><br>
+<button onclick="check('f7',false,'KI hat keinen Einfluss auf das Gehirn direkt.')">Weil KI das Gehirn zerstört</button><br>
+<button onclick="check('f7',false,'KI denkt nicht für uns automatisch.')">Weil KI alles verbietet</button>
+<div id="f7"></div>
+</div>
+
+<div class="card">
+<p><b>8. Warum sind schlechte Trainingsdaten gefährlich?</b></p>
+<button onclick="check('f8',true,'Fehler werden übernommen.')">KI übernimmt falsche Vorurteile</button><br>
+<button onclick="check('f8',false,'Daten sind immer nötig.')">KI funktioniert dann besser</button><br>
+<button onclick="check('f8',false,'Geschwindigkeit ist egal.')">KI wird langsamer</button>
+<div id="f8"></div>
+</div>
+
+<div class="card">
+<p><b>9. Warum ist Datenschutz bei KI besonders wichtig?</b></p>
+<button onclick="check('f9',true,'Persönliche Daten sind sensibel.')">Weil persönliche Daten missbraucht werden könnten</button><br>
+<button onclick="check('f9',false,'Tempo ist nicht der Hauptgrund.')">Weil KI sonst langsamer ist</button><br>
+<button onclick="check('f9',false,'Daten können richtig sein.')">Weil Daten immer falsch sind</button>
+<div id="f9"></div>
+</div>
+
+<div class="card">
+<p><b>10. Welche Aussage zu Arbeitsplätzen ist realistisch?</b></p>
+<button onclick="check('f10',true,'Wandel statt Ende.')">Manche Jobs verschwinden, andere entstehen neu</button><br>
+<button onclick="check('f10',false,'Das ist übertrieben.')">Alle Jobs gehen verloren</button><br>
+<button onclick="check('f10',false,'KI hat großen Einfluss.')">KI hat keinen Einfluss auf Arbeit</button>
+<div id="f10"></div>
+</div>
+
+<!-- 11–20 ALLTAG & VERANTWORTUNG -->
+<div class="card">
+<p><b>11. Warum ist bei KI-Fehlern oft unklar, wer schuld ist?</b></p>
+<button onclick="check('f11',true,'Viele Beteiligte.')">Viele Menschen und Systeme sind beteiligt</button><br>
+<button onclick="check('f11',false,'KI trägt keine Verantwortung.')">KI übernimmt Verantwortung</button><br>
+<button onclick="check('f11',false,'Absicht ist falsch.')">KI macht absichtlich Fehler</button>
+<div id="f11"></div>
+</div>
+
+<div class="card">
+<p><b>12. Welche Nutzung von KI ist am verantwortungsvollsten?</b></p>
+<button onclick="check('f12',true,'Kontrolle ist wichtig.')">KI unterstützt – Mensch entscheidet</button><br>
+<button onclick="check('f12',false,'Das ist riskant.')">KI entscheidet alles allein</button><br>
+<button onclick="check('f12',false,'Verbote helfen nicht immer.')">KI komplett verbieten</button>
+<div id="f12"></div>
+</div>
+
+<div class="card">
+<p><b>13. Warum ist KI gut für Berufe mit Fachkräftemangel?</b></p>
+<button onclick="check('f13',true,'Entlastung.')">Sie kann Menschen entlasten</button><br>
+<button onclick="check('f13',false,'KI ersetzt nicht alles.')">Sie macht Menschen überflüssig</button><br>
+<button onclick="check('f13',false,'Gefühle sind kein Vorteil.')">Sie versteht Gefühle besser</button>
+<div id="f13"></div>
+</div>
+
+<div class="card">
+<p><b>14. Warum sollte KI nicht über Menschen bewerten?</b></p>
+<button onclick="check('f14',true,'Bias-Risiko.')">Weil sie Vorurteile aus Daten übernehmen kann</button><br>
+<button onclick="check('f14',false,'KI bewertet sehr wohl.')">Weil sie keine Entscheidungen trifft</button><br>
+<button onclick="check('f14',false,'Das Gegenteil ist der Fall.')">Weil sie immer fair ist</button>
+<div id="f14"></div>
+</div>
+
+<div class="card">
+<p><b>15. Welche Aussage beschreibt KI am besten?</b></p>
+<button onclick="check('f15',true,'Werkzeug.')">Ein mächtiges Werkzeug mit Chancen und Risiken</button><br>
+<button onclick="check('f15',false,'KI ist kein Mensch.')">Ein denkender Mensch</button><br>
+<button onclick="check('f15',false,'KI ist nicht harmlos.')">Immer ungefährlich</button>
+<div id="f15"></div>
+</div>
+
+<p><b>🎯 Geschafft!</b> Wenn du die meisten Fragen richtig hattest, hast du KI wirklich verstanden – nicht nur auswendig gelernt.</p>
+
+</body>
+</html>
